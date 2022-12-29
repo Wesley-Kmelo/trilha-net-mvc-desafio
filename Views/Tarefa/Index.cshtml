@@ -1,0 +1,62 @@
+@model IEnumerable<trilha_net_mvc_desafio.Models.Tarefa>
+
+@{
+    ViewData["Title"] = "Lista de Tarefas";
+}
+
+<h2>Tarefas</h2>
+
+<p>
+    <a asp-action="NovaTarefa">Nova Tarefa</a> |
+    <a asp-action="StatusTarefa" asp-route-id="pendente">Tarefas por Status</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model=> model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=> model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=> model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=> model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=>model.Data)
+            </th>
+            <th></th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tarefa in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(t=> tarefa.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(t=> tarefa.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(t=> tarefa.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(t=> tarefa.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(t=>tarefa.Data)
+                </td>
+                <td>
+                    <a asp-action="EditaTarefa" asp-route-id="@tarefa.Id">Editar</a> | 
+                    <a asp-action="DetalhesTarefa" asp-route-id="@tarefa.Id">Detalhes</a> | 
+                    <a asp-action="DeletaTarefa" asp-route-id="@tarefa.Id">Deletar</a> 
+                </td>
+            </tr>
+        } 
+    </tbody>
+</table>

@@ -1,0 +1,37 @@
+@model trilha_net_mvc_desafio.Models.Tarefa;
+
+@{
+    ViewData["Title"] = "Deleta Tarefa";
+}
+
+<h2 style="color:red;">Tem certeza que quer deletar a tarefa @Html.DisplayFor(t=>t.Titulo) ? </h2>
+
+<hr/>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(t=>t.Titulo)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(t=>t.Titulo)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(t=>t.Descricao)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(t=>t.Descricao)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(t=>t.Status)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(t=>t.Status)
+        </dt>
+    </dl>
+    <form asp-action="DeletaTarefa">
+        <input type="submit" value="Apagar essa tarefa">
+    </form>    
+</div>
+<hr/>
+<a asp-action="Index" class="btn btn-danger">Cancelar</a>
